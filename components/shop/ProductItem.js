@@ -1,9 +1,11 @@
 import React from "react";
 import { View, Text, Image, Button, StyleSheet } from "react-native";
 
+import Cart from "../UI/Cart";
+
 const ProductItem = (props) => {
   return (
-    <View style={styles.product}>
+    <Cart style={styles.product}>
       <View style={styles.imageContainer}>
         <Image source={{ uri: props.image }} style={styles.image} />
       </View>
@@ -12,19 +14,12 @@ const ProductItem = (props) => {
         <Text>${props.price.toFixed(2)}</Text>
       </View>
       <View style={styles.button}>{props.children}</View>
-    </View>
+    </Cart>
   );
 };
 
 const styles = StyleSheet.create({
   product: {
-    shadowColor: "black",
-    shadowOpacity: 0.26,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 8,
-    elevation: 5,
-    borderRadius: 10,
-    backgroundColor: "white",
     height: 500,
     margin: 20,
   },

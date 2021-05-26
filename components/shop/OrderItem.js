@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, Button, FlatList } from "react-native";
 
 import CartItem from "./CartItem";
+import Cart from "../UI/Cart";
 
 const OrderItem = (props) => {
   const [showDetail, setShowDetail] = useState(false);
   return (
-    <View style={styles.screen}>
+    <Cart style={styles.screen}>
       <View style={styles.summary}>
         <Text>$ {props.orders.totalAmount.toFixed(2)}</Text>
         <Text>{props.orders.readableDate}</Text>
@@ -26,19 +27,12 @@ const OrderItem = (props) => {
           renderItem={(itemData) => <CartItem items={itemData.item} />}
         />
       )}
-    </View>
+    </Cart>
   );
 };
 
 const styles = StyleSheet.create({
   screen: {
-    shadowColor: "black",
-    shadowOpacity: 0.26,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 8,
-    elevation: 5,
-    borderRadius: 10,
-    backgroundColor: "white",
     margin: 20,
     padding: 10,
   },
